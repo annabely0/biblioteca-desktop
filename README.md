@@ -12,8 +12,8 @@ O projeto aplica herança, polimorfismo, composição, associação e dependênc
 
 | Nível | Propósito | Interface | Vídeo | Commit de entrega | Status |
 |:-----:|-----------|:---------:|:-----:|:-----------------:|:------:|
-| 1 | Modelagem em UML (diagrama de classes) e testes das funcionalidades | Terminal (`teste_rapido.py`) | [Link](COLE_O_LINK_AQUI) | `A definir` | Concluído |
-| 2 | Menu funcional: o usuário navega pelas funcionalidades do sistema, sem banco de dados | Terminal (menu) | [Link](COLE_O_LINK_AQUI) | `A definir` | Pendente |
+| 1 | Modelagem em UML (diagrama de classes) e testes das funcionalidades | Terminal (`teste_rapido.py`) | [Link](https://youtu.be/Jyrq_PwBc_s) | `A definir` | Concluído |
+| 2 | Menu funcional: o usuário navega pelas funcionalidades do sistema, sem banco de dados | Terminal (menu) | [Link]() | `A definir` | Pendente |
 | 3 | Persistência dos dados em banco de dados (SQLite) | Terminal (menu, `--db`) | Em breve | `A definir` | Pendente |
 | 4 | Interface gráfica, com o sistema funcionando em janelas | Janelas (GUI) | Em breve | `A definir` | Pendente |
 
@@ -62,5 +62,5 @@ Se o seu sistema usa `python` em vez de `python3`, troque o comando.
 
 ## Autores
 
-- [Nome da Pessoa 1]
-- [Nome da Pessoa 2]
+- Ana Clara Cheim de Matos
+- Annabely Andrade Vieira
