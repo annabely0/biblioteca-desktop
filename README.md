@@ -13,7 +13,7 @@ O projeto aplica herança, polimorfismo, composição, associação e dependênc
 | Nível | Propósito | Interface | Vídeo | Commit de entrega | Status |
 |:-----:|-----------|:---------:|:-----:|:-----------------:|:------:|
 | 1 | Modelagem em UML (diagrama de classes) e testes das funcionalidades | Terminal (`teste_rapido.py`) | [Link](https://youtu.be/Jyrq_PwBc_s) | `74f7f82` | Concluído |
-| 2 | Menu funcional: o usuário navega pelas funcionalidades do sistema, sem banco de dados | Terminal (menu) | Em breve | `A definir` | Pendente |
+| 2 | Menu funcional: o usuário navega pelas funcionalidades do sistema, sem banco de dados | Terminal (menu) | [Link](https://youtu.be/zATbeqDTYzE) | `A definir` | Pendente |
 | 3 | Persistência dos dados em banco de dados (SQLite) | Terminal (menu, `--db`) | Em breve | `A definir` | Pendente |
 | 4 | Interface gráfica, com o sistema funcionando em janelas | Janelas (GUI) | Em breve | `A definir` | Pendente |
 
