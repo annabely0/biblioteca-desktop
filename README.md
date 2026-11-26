@@ -1,64 +1,46 @@
-# Sistema de Biblioteca
-
-Sistema de gerenciamento de biblioteca, desenvolvido em **Python** para a disciplina **Orientação a Objetos** (UnB).
-
+# Iron Gym | BMVC
+Sistema de gerenciamento de academia, desenvolvido em **Python** com o framework **Bottle**, no padrão de arquitetura **MVC** (Model, View, Controller).
 ## Finalidade
-
-Simular a rotina de uma biblioteca: cadastro de livros e revistas, cadastro de alunos e professores, empréstimos, devoluções e cálculo de multa por atraso.
-
-O projeto aplica herança, polimorfismo, composição, associação e dependência (além de agregação e encapsulamento), com modelagem em UML.
-
+Simular a rotina de uma academia: apresentar os planos e horários, cadastrar e gerenciar alunos, controlar o acesso dos funcionários ao sistema e acompanhar a lotação em tempo real.
+O projeto evolui em quatro níveis, cada um em sua própria pasta e com seu próprio vídeo de apresentação. Neste momento, apenas o **nível 1** foi entregue.
 ## Níveis do projeto
-
-| Nível | Propósito | Interface | Vídeo | Commit de entrega | Status |
-|:-----:|-----------|:---------:|:-----:|:-----------------:|:------:|
-| 1 | Modelagem em UML (diagrama de classes) e testes das funcionalidades | Terminal (`teste_rapido.py`) | [Link](https://youtu.be/Jyrq_PwBc_s) | `74f7f82` | Concluído |
-| 2 | Menu funcional: o usuário navega pelas funcionalidades do sistema, sem banco de dados | Terminal (menu) | [Link](https://youtu.be/zATbeqDTYzE) | `ee638b9` | Concluido |
-| 3 | Persistência dos dados em banco de dados (SQLite) | Terminal (menu, `--db`) | Em breve | `A definir` | Pendente |
-| 4 | Interface gráfica, com o sistema funcionando em janelas | Janelas (GUI) | Em breve | `A definir` | Pendente |
-
-## Modelagem em UML
-
-![Diagrama de classes](uml.png)
-
-## Relações de orientação a objetos
-
-| Relação | Onde está | Arquivo |
-|---------|-----------|---------|
-| Herança | `Aluno` e `Professor` herdam de `Pessoa`; `Livro` e `Revista` herdam de `Item` | `modelos.py` |
-| Polimorfismo | `prazo_dias` (7 dias para aluno, 14 para professor) e `multa_por_dia` (livro e revista) | `modelos.py` |
-| Composição | A `Biblioteca` cria o `Acervo` dentro dela | `biblioteca.py` |
-| Agregação | O `Acervo` guarda itens criados fora dele | `modelos.py` |
-| Associação | O `Emprestimo` liga uma `Pessoa` a um `Item` | `modelos.py` |
-| Dependência | O `Recibo` usa o `Emprestimo` sem guardá-lo | `modelos.py` |
-| Encapsulamento | O estado do item só muda por `marcar_emprestado()` | `modelos.py` |
-
-## Estrutura dos arquivos
-
+| Nível | Propósito | Pasta | Vídeo | Commit de entrega | Status |
+|:-----:|-----------|:-----:|:-----:|:-----------------:|:------:|
+| 1 | Página estática em template TPL, com CSS e JavaScript ativos (planos e calculadora de IMC) | `nivel1_pagina_estatica` | Em breve | `A definir` | Enviado |
+| 2 | CRUD completo do modelo `Aluno`, com persistência em arquivo JSON | `nivel2_crud` | Em breve | `A definir` | Pendente |
+| 3 | CRUD com login, sessão em cookie assinado e páginas restritas | `nivel3_login` | Em breve | `A definir` | Pendente |
+| 4 | Tudo do nível 3 mais WebSocket: check-in/out e lotação em tempo real | `nivel4_websocket` | Em breve | `A definir` | Pendente |
+## Padrão MVC (nível 1)
+| Camada | Onde está | O que faz |
+|--------|-----------|-----------|
+| Model | `models/plano.py` | A classe `Plano` guarda nome, preço e benefícios; o `CatalogoPlanos` entrega a lista de planos |
+| View | `views/index.tpl` | Template TPL que percorre os planos com um laço `for` e monta a página |
+| Controller | `controllers/site_controller.py` | O `SiteController` registra a rota `/` e a rota dos arquivos estáticos, e renderiza o template |
+## Estrutura dos arquivos (nível 1)
 | Arquivo | Função |
 |---------|--------|
-| `modelos.py` | Classes do domínio: pessoas, itens, empréstimo, acervo e recibo |
-| `biblioteca.py` | Regras de negócio: cadastrar, emprestar e devolver |
-| `repositorio.py` | Armazenamento: em memória e em SQLite |
-| `app_terminal.py` | Menu em terminal |
-| `app_gui.py` | Interface gráfica |
-| `teste_rapido.py` | Testes automáticos das regras |
-| `uml.png` | Modelagem em UML |
-
+| `app.py` | Cria a aplicação Bottle, define a pasta de templates, instancia o controller e sobe o servidor |
+| `models/plano.py` | Classes do domínio: `Plano` e `CatalogoPlanos` |
+| `controllers/site_controller.py` | Rotas da página e dos arquivos estáticos |
+| `views/index.tpl` | Página inicial: planos, calculadora de IMC e horários |
+| `static/css/style.css` | Estilo da página, incluindo o menu responsivo |
+| `static/js/app.js` | Menu para telas pequenas e cálculo do IMC sem recarregar a página |
+| `requirements.txt` | Dependências do projeto |
 ## Como rodar
-
-É necessário ter o Python 3 instalado. Abra um terminal na pasta do projeto e use:
+É necessário ter o Python 3 instalado. Abra um terminal na pasta do nível e use:
 
 ```bash
-python3 teste_rapido.py        # testes automáticos
-python3 app_terminal.py        # menu em terminal, sem banco de dados
-python3 app_terminal.py --db   # menu em terminal, com banco de dados SQLite
-python3 app_gui.py             # interface gráfica
+cd nivel1_pagina_estatica
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
 ```
 
-Se o seu sistema usa `python` em vez de `python3`, troque o comando.
+O sistema abre em http://localhost:8080.
 
+Se o seu sistema usa `python` em vez de `python3`, troque o comando.
 ## Autores
 
-- Ana Clara Cheim de Matos
-- Annabely Andrade Vieira
+* Ana Clara Cheim de Matos
+* Annabely Andrade Vieira
